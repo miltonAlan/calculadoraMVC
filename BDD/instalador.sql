@@ -21,7 +21,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `producto`
+-- Table `pedido`
 -- -----------------------------------------------------
 CREATE TABLE pedido (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -64,27 +64,27 @@ INSERT INTO producto ( codigo,    nombre,                   precio)
 -- Table `pedido`
 -- -----------------------------------------------------
 INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A11',               50,           500) 
+            VALUES ('A11',               50,           500); 
 INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A11',               2,            100) 
+            VALUES ('A11',               2,            100); 
 INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A12',               1,            8) 
+            VALUES ('A12',               1,            8); 
 INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A12',               1000,         8000) 
+            VALUES ('A12',               1000,         8000); 
 INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A13',               4,            400) 
+            VALUES ('A13',               4,            400); 
 INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A13',               800,          80000) 
+            VALUES ('A13',               800,          80000); 
 INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A14',               50,           2500) 
+            VALUES ('A14',               50,           2500); 
 INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A14',               3,            150) 
+            VALUES ('A14',               3,            150); 
 
 
 -- -----------------------------------------------------
 -- Table `usuario`
 -- -----------------------------------------------------
 INSERT INTO usuario (nombre,      apellido,     usuario,      clave,        rol)
-            values  ('Milton',    'Paucar',     'mpaucar',    'admuser',    'ADM')
+            values  ('Milton',    'Paucar',     'mpaucar',    'admuser',    'ADM');
 INSERT INTO usuario (nombre,      apellido,     usuario,      clave,        rol)
-            values  ('Adrian',    'Nario',     'elbana',      'saluteee',   'USR')
+            values  ('Adrian',    'Nario',     'elbana',      'saluteee',   'USR');
