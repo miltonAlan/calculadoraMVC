@@ -19,7 +19,7 @@ public class ControladorPrincipal implements ActionListener {
     }
 
     public void inciar(){
-        frmPro.setTitle("Producto");
+        frmPro.setTitle("Pedido");
         frmPri.setTitle("Principal");
         frmPri.setLocationRelativeTo(null);
         frmPro.setLocationRelativeTo(null);

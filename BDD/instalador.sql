@@ -83,6 +83,6 @@ insert into pedido ( codigo,    cantidad,     precio_unitario,    descripcion,  
 -- table `usuario`
 -- -----------------------------------------------------
 insert into usuario (nombre,      apellido,     usuario,      clave,        rol)
-            values  ('milton',    'paucar',     'mpaucar',    'admuser',    'adm');
+            values  ('milton',    'paucar',     'mpaucar',    'admuser',    'ADMIN');
 insert into usuario (nombre,      apellido,     usuario,      clave,        rol)
-            values  ('adrian',    'nario',     'elbana',      'saluteee',   'usr');
+            values  ('adrian',    'nario',     'elbana',      'saluteee',   'USER');
