@@ -43,7 +43,7 @@ public class ControladorLogin implements ActionListener {
             this.usuario.setNombre(log.txt_nombre_nuevo.getText());
             this.usuario.setApellido(log.txt_apellido_nuevo.getText());
             this.usuario.setUsuario(log.txt_usuario_nuevo.getText());
-            this.usuario.setClave(log.txt_contrasenia.getText());
+            this.usuario.setClave(log.txt_clave_nueva.getText());
             this.usuario.setRol(log.combo_roles.getSelectedItem().toString());
             if (log.txt_clave_nueva.getText().length() > 0) {
                 JOptionPane.showMessageDialog(null, "Usuario  registrado");
@@ -61,18 +61,28 @@ public class ControladorLogin implements ActionListener {
         if (e.getSource() == log.btn_iniciar_sesion) {
             visibilidadCamposCrearUsuario(false);
             visibilidadCamposIniciarSesion(true);
-            
-                  Pedido pro = new Pedido();
-            CRUDPedido proC = new CRUDPedido();
-            VProducto frmPro = new VProducto();
-            ControladorProducto ctrlPro = new ControladorProducto(pro, frmPro, proC);
-            VPrincipal frmPri = new VPrincipal();
-            ControladorPrincipal ctrlPri = new ControladorPrincipal(frmPri, frmPro);
-            ctrlPri.inciar();
-            frmPri.setVisible(true);
-            frmPro.dispose();
-            log.dispose();
-            
+
+            this.usuario.setUsuario(log.txt_nombre.getText());
+            this.usuario.setClave(log.txt_contrasenia.getText());
+            //valida si hay texto en ambos campos
+            if (log.txt_contrasenia.getText().length() > 0 && log.txt_nombre.getText().length() > 0) {
+
+                if (crudUsuario.iniciar_sesion(usuario)) {
+                    Pedido pro = new Pedido();
+                    CRUDPedido proC = new CRUDPedido();
+                    VProducto frmPro = new VProducto();
+                    ControladorProducto ctrlPro = new ControladorProducto(pro, frmPro, proC);
+                    VPrincipal frmPri = new VPrincipal();
+                    ControladorPrincipal ctrlPri = new ControladorPrincipal(frmPri, frmPro);
+                    ctrlPri.inciar();
+                    frmPri.setVisible(true);
+                    frmPro.dispose();
+                    log.dispose();
+                    JOptionPane.showMessageDialog(null, "Bienvenido " + this.usuario.getUsuario());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
+                }
+            }
 //            if (proC.registrar(ped)) {
 //                JOptionPane.showMessageDialog(null, "Producto agregado");
 //                limpiar();
