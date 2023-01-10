@@ -1,90 +1,88 @@
 -- instalador de estructuras y datos iniciales
 
-CREATE SCHEMA IF NOT EXISTS `tienda` DEFAULT CHARACTER SET utf8 ;
-USE `tienda` ;
+create schema if not exists `tienda` default character set utf8 ;
+use `tienda` ;
 
-DROP TABLE IF EXISTS producto;
-DROP TABLE IF EXISTS pedido;
-DROP TABLE IF EXISTS usuario;
-
-
--- -----------------------------------------------------
--- Table `producto`
--- -----------------------------------------------------
-CREATE TABLE producto (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `codigo` VARCHAR(45) NOT NULL,
-  `nombre` VARCHAR(45) NOT NULL,
-  `precio` INT NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+-- drop table if exists producto;
+drop table if exists pedido;
+drop table if exists usuario;
 
 
 -- -----------------------------------------------------
--- Table `pedido`
+-- table `producto`
 -- -----------------------------------------------------
-CREATE TABLE pedido (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `codigo_producto` VARCHAR(45) NOT NULL,
-  `cantidad` int NOT NULL,
-  `precio` INT NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+-- create table producto (
+--   `id` int not null auto_increment,
+--   `codigo` varchar(45) not null,
+--   `nombre` varchar(45) not null,
+--   `precio` int not null,
+--   primary key (`id`))
+-- engine = innodb;
 
 
 -- -----------------------------------------------------
--- Table `producto`
+-- table `pedido`
 -- -----------------------------------------------------
-CREATE TABLE  usuario (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NOT NULL,
-  `apellido` VARCHAR(45) NOT NULL,
-  `usuario` VARCHAR(45) NOT NULL,
-  `clave` VARCHAR(45) NOT NULL,
-  `rol` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `producto`
--- -----------------------------------------------------
-
-INSERT INTO producto ( codigo,    nombre,                   precio)
-            VALUES   ('A11',     'Mouse ergonomico',         10); 
-INSERT INTO producto ( codigo,    nombre,                   precio)
-            VALUES   ('A12',     'Teclado ergonomico',        8); 
-INSERT INTO producto ( codigo,    nombre,                   precio)
-            VALUES   ('A13',     'Monitor LCD',              100); 
-INSERT INTO producto ( codigo,    nombre,                   precio)
-            VALUES   ('A14',     'Disco duro'       ,         50); 
-
+create table pedido (
+  `id` int not null auto_increment,
+  `codigo` varchar(45) not null,
+  `cantidad` int not null,
+  `descripcion` varchar(45) not null,
+  `precio_unitario` int not null,
+  `precio_final` int not null,
+  primary key (`id`))
+engine = innodb;
 
 
 -- -----------------------------------------------------
--- Table `pedido`
+-- table `producto`
 -- -----------------------------------------------------
-INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A11',               50,           500); 
-INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A11',               2,            100); 
-INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A12',               1,            8); 
-INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A12',               1000,         8000); 
-INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A13',               4,            400); 
-INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A13',               800,          80000); 
-INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A14',               50,           2500); 
-INSERT INTO pedido ( codigo_producto,    cantidad,     precio)
-            VALUES ('A14',               3,            150); 
+create table  usuario (
+  `id` int not null auto_increment,
+  `nombre` varchar(45) not null,
+  `apellido` varchar(45) not null,
+  `usuario` varchar(45) not null,
+  `clave` varchar(45) not null,
+  `rol` varchar(45) not null,
+  primary key (`id`))
+engine = innodb;
+
+-- -----------------------------------------------------
+-- table `producto`
+-- -----------------------------------------------------
+
+-- insert into producto ( codigo,    nombre,                   precio)
+--             values   ('a11',     'mouse ergonomico',         10); 
+-- insert into producto ( codigo,    nombre,                   precio)
+--             values   ('a12',     'teclado ergonomico',        8); 
+-- insert into producto ( codigo,    nombre,                   precio)
+--             values   ('a13',     'monitor lcd',              100); 
+-- insert into producto ( codigo,    nombre,                   precio)
+--             values   ('a14',     'disco duro'       ,         50); 
+
+
+
+-- -----------------------------------------------------
+-- table `pedido`
+-- -----------------------------------------------------
+insert into pedido ( codigo,    cantidad,     precio_unitario,    descripcion,                    precio_final)
+            values ('a11',      50,           10,                'compra de 10 teclados',         500); 
+insert into pedido ( codigo,    cantidad,     precio_unitario,    descripcion,                    precio_final)
+            values ('a12',      2,            100,                'compra de 2 monitores',        200); 
+insert into pedido ( codigo,    cantidad,     precio_unitario,    descripcion,                    precio_final)
+            values ('a13',      1,            8,                  'compra de un cpu',             8); 
+insert into pedido ( codigo,    cantidad,     precio_unitario,    descripcion,                    precio_final)
+            values ('a14',      1000,         8000,               'compra de 1000 camaras',       8000000); 
+insert into pedido ( codigo,    cantidad,     precio_unitario,    descripcion,                    precio_final)
+            values ('a15',      4,            400,                'compra de 4 telefonos',        1600); 
+insert into pedido ( codigo,    cantidad,     precio_unitario,    descripcion,                    precio_final)
+            values ('a16',      800,          66,                 'compra de 800 discos duros',   52800); 
 
 
 -- -----------------------------------------------------
--- Table `usuario`
+-- table `usuario`
 -- -----------------------------------------------------
-INSERT INTO usuario (nombre,      apellido,     usuario,      clave,        rol)
-            values  ('Milton',    'Paucar',     'mpaucar',    'admuser',    'ADM');
-INSERT INTO usuario (nombre,      apellido,     usuario,      clave,        rol)
-            values  ('Adrian',    'Nario',     'elbana',      'saluteee',   'USR');
+insert into usuario (nombre,      apellido,     usuario,      clave,        rol)
+            values  ('milton',    'paucar',     'mpaucar',    'admuser',    'adm');
+insert into usuario (nombre,      apellido,     usuario,      clave,        rol)
+            values  ('adrian',    'nario',     'elbana',      'saluteee',   'usr');

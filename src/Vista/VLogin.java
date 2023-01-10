@@ -7,8 +7,8 @@ package Vista;
 
 import Controlador.ControladorPrincipal;
 import Controlador.ControladorProducto;
-import Modelo.ConsultasProducto;
-import Modelo.Producto;
+import Modelo.CRUDPedido;
+import Modelo.Pedido;
 import javax.swing.JOptionPane;
 
 /**
@@ -107,8 +107,8 @@ public class VLogin extends javax.swing.JFrame {
         String password = jPassword.getText();
 
         if (jPassword.getText().equalsIgnoreCase(jTextFieldUsuario.getText())) {
-            Producto pro = new Producto();
-            ConsultasProducto proC = new ConsultasProducto();
+            Pedido pro = new Pedido();
+            CRUDPedido proC = new CRUDPedido();
             VProducto frmPro = new VProducto();
             ControladorProducto ctrlPro = new ControladorProducto(pro, frmPro, proC);
             VPrincipal frmPri = new VPrincipal();
