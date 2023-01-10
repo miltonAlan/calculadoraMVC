@@ -2,7 +2,7 @@ package Modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CRUDUsuario extends Conexion {
@@ -25,6 +25,28 @@ public class CRUDUsuario extends Conexion {
             System.err.println(e);
             return false;
         }
+    }
+
+    // Log in
+    public boolean iniciar_sesion(Usuario usr) {
+        PreparedStatement ps = null;
+        Connection con = getConexion();
+        ResultSet rs = null;
+        String sql = "select * from usuario where usuario=? and clave=?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usr.getUsuario());
+            ps.setString(2, usr.getClave());
+            rs = ps.executeQuery();
+            // valida que haya x lo menos un resultado
+            if (rs.next() == true) {
+                return true;
+            }
+        } catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        return false;
     }
 
     public int calcularPrecioFinal(Pedido p) {
