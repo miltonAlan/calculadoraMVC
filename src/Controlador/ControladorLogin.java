@@ -2,9 +2,12 @@ package Controlador;
 
 import Modelo.CRUDPedido;
 import Modelo.CRUDUsuario;
+import Modelo.Pedido;
 //import Modelo.Pedido;
 import Modelo.Usuario;
 import Vista.VLogin;
+import Vista.VPrincipal;
+import Vista.VProducto;
 //import Vista.VProducto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -58,6 +61,18 @@ public class ControladorLogin implements ActionListener {
         if (e.getSource() == log.btn_iniciar_sesion) {
             visibilidadCamposCrearUsuario(false);
             visibilidadCamposIniciarSesion(true);
+            
+                  Pedido pro = new Pedido();
+            CRUDPedido proC = new CRUDPedido();
+            VProducto frmPro = new VProducto();
+            ControladorProducto ctrlPro = new ControladorProducto(pro, frmPro, proC);
+            VPrincipal frmPri = new VPrincipal();
+            ControladorPrincipal ctrlPri = new ControladorPrincipal(frmPri, frmPro);
+            ctrlPri.inciar();
+            frmPri.setVisible(true);
+            frmPro.dispose();
+            log.dispose();
+            
 //            if (proC.registrar(ped)) {
 //                JOptionPane.showMessageDialog(null, "Producto agregado");
 //                limpiar();
