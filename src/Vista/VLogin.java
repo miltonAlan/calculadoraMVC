@@ -34,52 +34,72 @@ public class VLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jTextFieldUsuario = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jPassword = new javax.swing.JPasswordField();
-        jButtonSesion = new javax.swing.JButton();
+        label_rol_nuevo = new javax.swing.JLabel();
+        txt_nombre_nuevo = new javax.swing.JTextField();
+        label_contrasenia = new javax.swing.JLabel();
+        txt_clave_nueva = new javax.swing.JPasswordField();
+        btn_crear_user = new javax.swing.JButton();
+        btn_iniciar_sesion = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        label_usuario = new javax.swing.JLabel();
+        label_nombre_nuevo = new javax.swing.JLabel();
+        label_apellido_nuevo = new javax.swing.JLabel();
+        label_usuario_nuevo = new javax.swing.JLabel();
+        label_clave_nueva = new javax.swing.JLabel();
+        txt_apellido_nuevo = new javax.swing.JTextField();
+        txt_usuario_nuevo = new javax.swing.JTextField();
+        txt_nombre = new javax.swing.JTextField();
+        txt_contrasenia = new javax.swing.JPasswordField();
+        combo_roles = new javax.swing.JComboBox<>();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jLabel2.setText("Usuario:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
+        label_rol_nuevo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        label_rol_nuevo.setText("Rol");
+        getContentPane().add(label_rol_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
 
-        jTextFieldUsuario.setBackground(new java.awt.Color(204, 204, 204));
-        jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txt_nombre_nuevo.setBackground(new java.awt.Color(204, 204, 204));
+        txt_nombre_nuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuarioActionPerformed(evt);
+                txt_nombre_nuevoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 180, 30));
+        getContentPane().add(txt_nombre_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 180, 30));
 
-        jLabel3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jLabel3.setText("Contraseña:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, -1));
+        label_contrasenia.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        label_contrasenia.setText("Contraseña:");
+        getContentPane().add(label_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, -1));
 
-        jPassword.setBackground(new java.awt.Color(204, 204, 204));
-        jPassword.setText("");
-        jPassword.addActionListener(new java.awt.event.ActionListener() {
+        txt_clave_nueva.setBackground(new java.awt.Color(204, 204, 204));
+        txt_clave_nueva.setText("");
+        txt_clave_nueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordActionPerformed(evt);
+                txt_clave_nuevaActionPerformed(evt);
             }
         });
-        getContentPane().add(jPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 180, 30));
+        getContentPane().add(txt_clave_nueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 180, 30));
 
-        jButtonSesion.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButtonSesion.setText("Iniciar Sesión");
-        jButtonSesion.addActionListener(new java.awt.event.ActionListener() {
+        btn_crear_user.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btn_crear_user.setText("Crear Usuario");
+        btn_crear_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSesionActionPerformed(evt);
+                btn_crear_userActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, -1, -1));
+        getContentPane().add(btn_crear_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, -1, -1));
+
+        btn_iniciar_sesion.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btn_iniciar_sesion.setText("Iniciar Sesión");
+        btn_iniciar_sesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iniciar_sesionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_iniciar_sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(204, 204, 255));
         jButton1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -92,43 +112,126 @@ public class VLogin extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 520));
+        label_usuario.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        label_usuario.setText("Usuario:");
+        getContentPane().add(label_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
+
+        label_nombre_nuevo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        label_nombre_nuevo.setText("Nombre");
+        getContentPane().add(label_nombre_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        label_apellido_nuevo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        label_apellido_nuevo.setText("Apellido");
+        getContentPane().add(label_apellido_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+
+        label_usuario_nuevo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        label_usuario_nuevo.setText("Usuario");
+        getContentPane().add(label_usuario_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+
+        label_clave_nueva.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        label_clave_nueva.setText("Clave");
+        getContentPane().add(label_clave_nueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+
+        txt_apellido_nuevo.setBackground(new java.awt.Color(204, 204, 204));
+        txt_apellido_nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_apellido_nuevoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_apellido_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 180, 30));
+
+        txt_usuario_nuevo.setBackground(new java.awt.Color(204, 204, 204));
+        txt_usuario_nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_usuario_nuevoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_usuario_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 180, 30));
+
+        txt_nombre.setBackground(new java.awt.Color(204, 204, 204));
+        txt_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 180, 30));
+
+        txt_contrasenia.setBackground(new java.awt.Color(204, 204, 204));
+        txt_contrasenia.setText("");
+        txt_contrasenia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_contraseniaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 180, 30));
+
+        combo_roles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMIN", "USER"}));
+        combo_roles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_rolesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(combo_roles, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, -1, -1));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
+    private void txt_nombre_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombre_nuevoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
+    }//GEN-LAST:event_txt_nombre_nuevoActionPerformed
 
-    private void jButtonSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSesionActionPerformed
-        //Obtiene la clave y la cifra
-        String password = jPassword.getText();
+    private void btn_crear_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crear_userActionPerformed
 
-        if (jPassword.getText().equalsIgnoreCase(jTextFieldUsuario.getText())) {
-            Pedido pro = new Pedido();
-            CRUDPedido proC = new CRUDPedido();
-            VProducto frmPro = new VProducto();
-            ControladorProducto ctrlPro = new ControladorProducto(pro, frmPro, proC);
-            VPrincipal frmPri = new VPrincipal();
-            ControladorPrincipal ctrlPri = new ControladorPrincipal(frmPri, frmPro);
-            ctrlPri.inciar();
-            frmPri.setVisible(true);
-            this.dispose();
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrectas");
-        }
-    }//GEN-LAST:event_jButtonSesionActionPerformed
+//        if (txt_clave_nueva.getText().equalsIgnoreCase(txt_nombre_nuevo.getText())) {
+//            Pedido pro = new Pedido();
+//            CRUDPedido proC = new CRUDPedido();
+//            VProducto frmPro = new VProducto();
+//            ControladorProducto ctrlPro = new ControladorProducto(pro, frmPro, proC);
+//            VPrincipal frmPri = new VPrincipal();
+//            ControladorPrincipal ctrlPri = new ControladorPrincipal(frmPri, frmPro);
+//            ctrlPri.inciar();
+//            frmPri.setVisible(true);
+//            this.dispose();
+//
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrectas");
+//        }
+    }//GEN-LAST:event_btn_crear_userActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordActionPerformed
+    private void txt_clave_nuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_clave_nuevaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordActionPerformed
+    }//GEN-LAST:event_txt_clave_nuevaActionPerformed
+
+    private void btn_iniciar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciar_sesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_iniciar_sesionActionPerformed
+
+    private void txt_apellido_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_apellido_nuevoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_apellido_nuevoActionPerformed
+
+    private void txt_usuario_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuario_nuevoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_usuario_nuevoActionPerformed
+
+    private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreActionPerformed
+
+    private void txt_contraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_contraseniaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_contraseniaActionPerformed
+
+    private void combo_rolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_rolesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_rolesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,12 +269,23 @@ public class VLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btn_crear_user;
+    public javax.swing.JButton btn_iniciar_sesion;
+    public javax.swing.JComboBox<String> combo_roles;
+    private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonSesion;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPassword;
-    private javax.swing.JTextField jTextFieldUsuario;
+    public javax.swing.JLabel label_apellido_nuevo;
+    public javax.swing.JLabel label_clave_nueva;
+    public javax.swing.JLabel label_contrasenia;
+    public javax.swing.JLabel label_nombre_nuevo;
+    public javax.swing.JLabel label_rol_nuevo;
+    public javax.swing.JLabel label_usuario;
+    public javax.swing.JLabel label_usuario_nuevo;
+    public javax.swing.JTextField txt_apellido_nuevo;
+    public javax.swing.JPasswordField txt_clave_nueva;
+    public javax.swing.JPasswordField txt_contrasenia;
+    public javax.swing.JTextField txt_nombre;
+    public javax.swing.JTextField txt_nombre_nuevo;
+    public javax.swing.JTextField txt_usuario_nuevo;
     // End of variables declaration//GEN-END:variables
 }

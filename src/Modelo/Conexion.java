@@ -20,7 +20,7 @@ public class Conexion {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             con = (Connection) DriverManager.getConnection(this.url, this.user, this.password);
-            JOptionPane.showMessageDialog(null, "conectado");
+//            JOptionPane.showMessageDialog(null, "conectado");
         }catch (SQLException e){
             System.err.println(e);
             JOptionPane.showMessageDialog(null, "error");
