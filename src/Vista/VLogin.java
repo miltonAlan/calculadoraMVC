@@ -185,20 +185,6 @@ public class VLogin extends javax.swing.JFrame {
 
     private void btn_crear_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crear_userActionPerformed
 
-//        if (txt_clave_nueva.getText().equalsIgnoreCase(txt_nombre_nuevo.getText())) {
-//            Pedido pro = new Pedido();
-//            CRUDPedido proC = new CRUDPedido();
-//            VProducto frmPro = new VProducto();
-//            ControladorProducto ctrlPro = new ControladorProducto(pro, frmPro, proC);
-//            VPrincipal frmPri = new VPrincipal();
-//            ControladorPrincipal ctrlPri = new ControladorPrincipal(frmPri, frmPro);
-//            ctrlPri.inciar();
-//            frmPri.setVisible(true);
-//            this.dispose();
-//
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrectas");
-//        }
     }//GEN-LAST:event_btn_crear_userActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
