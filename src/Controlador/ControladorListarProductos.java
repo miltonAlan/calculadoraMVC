@@ -2,62 +2,50 @@ package Controlador;
 
 import Modelo.CRUDPedido;
 import Modelo.Pedido;
-//import Vista.VListarProductos;
+import Vista.VListarProductos;
 import Vista.VPrincipal;
-import Vista.VProducto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
 
-public class ControladorProducto implements ActionListener {
+public class ControladorListarProductos implements ActionListener {
 
     private Pedido ped;
-    private VProducto frmPro;
+    private VListarProductos vListarProductos;
     private CRUDPedido proC;
     private VPrincipal vPrincipal;
 
-    public ControladorProducto(Pedido pro, VProducto frmPro, CRUDPedido proC, VPrincipal vPrincipal) {
+    public ControladorListarProductos(Pedido pro, CRUDPedido proC, VPrincipal vPrincipal, VListarProductos vListarProductos) {
         this.ped = pro;
-        this.frmPro = frmPro;
         this.proC = proC;
         this.vPrincipal = vPrincipal;
-        this.frmPro.btn_agregar.addActionListener(this);
-        this.frmPro.btn_limpiar.addActionListener(this);
-        this.frmPro.btn_calcular_precio_final.addActionListener(this);
-        this.frmPro.btn_volver.addActionListener(this);
+        this.vListarProductos = vListarProductos;
+        this.vListarProductos.btn_volver.addActionListener(this);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-                System.out.println("llega x lo menos");
-        //// boton agregar
-        if (e.getSource() == frmPro.btn_agregar) {
-            ped.setCodigo(frmPro.txt_codigo.getText());
-            ped.setDescripcion(frmPro.txt_descripcion.getText());
-            ped.setCantidad(Integer.parseInt(frmPro.txt_cantidad.getText()));
-            ped.setPrecio_unitario(Integer.parseInt(frmPro.txt_precio_unitario.getText()));
-            ped.setPrecio_final(Integer.parseInt(frmPro.txt_precio_final.getText()));
-            if (proC.registrar(ped)) {
-                JOptionPane.showMessageDialog(null, "Producto agregado");
-                limpiar();
-            } else {
-                JOptionPane.showMessageDialog(null, "Error al agregar");
-                limpiar();
-            }
-        }
+//        //// boton agregar
+//        if (e.getSource() == frmPro.btn_agregar) {
+//            ped.setCodigo(frmPro.txt_codigo.getText());
+//            ped.setDescripcion(frmPro.txt_descripcion.getText());
+//            ped.setCantidad(Integer.parseInt(frmPro.txt_cantidad.getText()));
+//            ped.setPrecio_unitario(Integer.parseInt(frmPro.txt_precio_unitario.getText()));
+//            ped.setPrecio_final(Integer.parseInt(frmPro.txt_precio_final.getText()));
+//            if (proC.registrar(ped)) {
+//                JOptionPane.showMessageDialog(null, "Producto agregado");
+//                limpiar();
+//            } else {
+//                JOptionPane.showMessageDialog(null, "Error al agregar");
+//                limpiar();
+//            }
+//        }
 
-        // boton btn_calcular_precio_final
-        if (e.getSource() == frmPro.btn_calcular_precio_final) {
-            ped.setCantidad(Integer.parseInt(frmPro.txt_cantidad.getText()));
-            ped.setPrecio_unitario(Integer.parseInt(frmPro.txt_precio_unitario.getText()));
-            frmPro.txt_precio_final.setText(Integer.toString(proC.calcularPrecioFinal(ped)));
-        }
         // boton volver
-        if (e.getSource() == frmPro.btn_volver) {
-            System.out.println("entra al volver");
+        if (e.getSource() == vListarProductos.btn_volver) {
+            System.out.println("entra el btn volver");
             this.vPrincipal.setVisible(true);
-            this.frmPro.dispose();
+            this.vListarProductos.dispose();
         }
 
 //        // boton btn_listar
@@ -114,36 +102,36 @@ public class ControladorProducto implements ActionListener {
         //      
     }
 
-    private void visibilidadCamposAdmin(boolean boleano) {
-        frmPro.label_codigo.setVisible(boleano);
-        frmPro.txt_codigo.setVisible(boleano);
-
-        frmPro.label_descripcion.setVisible(boleano);
-        frmPro.txt_descripcion.setVisible(boleano);
-
-        frmPro.txt_precio_final.setVisible(boleano);
-        frmPro.label_precio_final.setVisible(boleano);
-
-        frmPro.label_precio_unitario.setVisible(boleano);
-        frmPro.txt_precio_unitario.setVisible(boleano);
-
-        frmPro.label_cantidad.setVisible(boleano);
-        frmPro.txt_cantidad.setVisible(boleano);
-
-        frmPro.btn_calcular_precio_final.setVisible(boleano);
-        frmPro.btn_agregar.setVisible(boleano);
-
-        frmPro.label_calcular_pedido.setVisible(boleano);
-
-    }//fin action
-
-    public void limpiar() {
-        frmPro.txt_codigo.setText(null);
-        frmPro.txt_id.setText(null);
-        frmPro.txt_descripcion.setText(null);
-        frmPro.txt_precio_unitario.setText(null);
-        frmPro.txt_cantidad.setText(null);
-        frmPro.txt_precio_final.setText(null);
-    }
+//    private void visibilidadCamposAdmin(boolean boleano) {
+//        frmPro.label_codigo.setVisible(boleano);
+//        frmPro.txt_codigo.setVisible(boleano);
+//
+//        frmPro.label_descripcion.setVisible(boleano);
+//        frmPro.txt_descripcion.setVisible(boleano);
+//
+//        frmPro.txt_precio_final.setVisible(boleano);
+//        frmPro.label_precio_final.setVisible(boleano);
+//
+//        frmPro.label_precio_unitario.setVisible(boleano);
+//        frmPro.txt_precio_unitario.setVisible(boleano);
+//
+//        frmPro.label_cantidad.setVisible(boleano);
+//        frmPro.txt_cantidad.setVisible(boleano);
+//
+//        frmPro.btn_calcular_precio_final.setVisible(boleano);
+//        frmPro.btn_agregar.setVisible(boleano);
+//
+//        frmPro.label_calcular_pedido.setVisible(boleano);
+//
+//    }//fin action
+//
+//    public void limpiar() {
+//        frmPro.txt_codigo.setText(null);
+//        frmPro.txt_id.setText(null);
+//        frmPro.txt_descripcion.setText(null);
+//        frmPro.txt_precio_unitario.setText(null);
+//        frmPro.txt_cantidad.setText(null);
+//        frmPro.txt_precio_final.setText(null);
+//    }
 
 }

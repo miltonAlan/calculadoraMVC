@@ -30,10 +30,9 @@ public class VPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        menu_salir = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menu_producto = new javax.swing.JMenuItem();
+        menu_listar_pedidos = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -41,17 +40,18 @@ public class VPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu3.setText("Archivo");
-
-        menu_salir.setText("Salir");
-        jMenu3.add(menu_salir);
-
-        jMenuBar1.add(jMenu3);
-
         jMenu4.setText("Acciones");
 
-        menu_producto.setText("Producto");
+        menu_producto.setText("Crear Pedido");
         jMenu4.add(menu_producto);
+
+        menu_listar_pedidos.setText("Listar Pedidos");
+        menu_listar_pedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_listar_pedidosActionPerformed(evt);
+            }
+        });
+        jMenu4.add(menu_listar_pedidos);
 
         jMenuBar1.add(jMenu4);
 
@@ -70,6 +70,10 @@ public class VPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menu_listar_pedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_listar_pedidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menu_listar_pedidosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,10 +113,9 @@ public class VPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    public javax.swing.JMenuItem menu_listar_pedidos;
     public javax.swing.JMenuItem menu_producto;
-    public javax.swing.JMenuItem menu_salir;
     // End of variables declaration//GEN-END:variables
 }

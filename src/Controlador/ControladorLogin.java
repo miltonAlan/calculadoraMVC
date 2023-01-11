@@ -5,6 +5,7 @@ import Modelo.CRUDUsuario;
 import Modelo.Pedido;
 //import Modelo.Pedido;
 import Modelo.Usuario;
+import Vista.VListarProductos;
 import Vista.VLogin;
 import Vista.VPrincipal;
 import Vista.VProducto;
@@ -28,6 +29,7 @@ public class ControladorLogin implements ActionListener {
         this.crudUsuario = crudUsuario;
         this.log.btn_crear_user.addActionListener(this);
         this.log.btn_iniciar_sesion.addActionListener(this);
+
 //        oculta los campos de crear usuario cuando es primera vez
         visibilidadCamposCrearUsuario(false);
     }
@@ -69,15 +71,19 @@ public class ControladorLogin implements ActionListener {
 
                 if (crudUsuario.iniciar_sesion(usuario)) {
                     Pedido pro = new Pedido();
+
                     CRUDPedido proC = new CRUDPedido();
+
                     VProducto frmPro = new VProducto();
-                    ControladorProducto ctrlPro = new ControladorProducto(pro, frmPro, proC);
                     VPrincipal frmPri = new VPrincipal();
-                    ControladorPrincipal ctrlPri = new ControladorPrincipal(frmPri, frmPro);
+                    VListarProductos frmLstProd = new VListarProductos();
+
+                    ControladorProducto ctrlPro = new ControladorProducto(pro, frmPro, proC, frmPri);
+                    ControladorListarProductos ctrlLstPro = new ControladorListarProductos(pro, proC, frmPri, frmLstProd);
+                    ControladorPrincipal ctrlPri = new ControladorPrincipal(frmPri, frmPro, frmLstProd);
+                    
                     ctrlPri.inciar();
-                    frmPri.setVisible(true);
-                    frmPro.dispose();
-                    log.dispose();
+                    this.log.dispose();
                     JOptionPane.showMessageDialog(null, "Bienvenido " + this.usuario.getUsuario());
                 } else {
                     JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
