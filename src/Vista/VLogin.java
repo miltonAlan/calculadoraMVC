@@ -50,12 +50,12 @@ public class VLogin extends javax.swing.JFrame {
         txt_usuario_nuevo = new javax.swing.JTextField();
         txt_nombre = new javax.swing.JTextField();
         txt_contrasenia = new javax.swing.JPasswordField();
-        combo_roles = new javax.swing.JComboBox<>();
+        combo_rol_escoger = new javax.swing.JComboBox();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         setResizable(false);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         label_rol_nuevo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -165,13 +165,8 @@ public class VLogin extends javax.swing.JFrame {
         });
         getContentPane().add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 180, 30));
 
-        combo_roles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMIN", "USER"}));
-        combo_roles.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combo_rolesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(combo_roles, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, -1, -1));
+        combo_rol_escoger.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMIN", "USER"}));
+        getContentPane().add(combo_rol_escoger, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 520));
@@ -215,10 +210,6 @@ public class VLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_contraseniaActionPerformed
 
-    private void combo_rolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_rolesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_combo_rolesActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -257,7 +248,7 @@ public class VLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_crear_user;
     public javax.swing.JButton btn_iniciar_sesion;
-    public javax.swing.JComboBox<String> combo_roles;
+    public javax.swing.JComboBox combo_rol_escoger;
     private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
     public javax.swing.JLabel label_apellido_nuevo;

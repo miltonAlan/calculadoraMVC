@@ -1,50 +1,45 @@
 package Controlador;
 
-import Modelo.CRUDListarPedidos;
 import Modelo.CRUDPedido;
 import Modelo.Pedido;
 import Vista.VListarProductos;
 import Vista.VPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 public class ControladorListarProductos implements ActionListener {
 
     private Pedido ped;
     private VListarProductos vListarProductos;
-    private CRUDListarPedidos crudListarPedidos;
+    private CRUDPedido proC;
     private VPrincipal vPrincipal;
 
-    public ControladorListarProductos(Pedido pro, CRUDListarPedidos crudListarPedidos, VPrincipal vPrincipal, VListarProductos vListarProductos) {
+    public ControladorListarProductos(Pedido pro, CRUDPedido proC, VPrincipal vPrincipal, VListarProductos vListarProductos) {
         this.ped = pro;
-        this.crudListarPedidos = crudListarPedidos;
+        this.proC = proC;
         this.vPrincipal = vPrincipal;
         this.vListarProductos = vListarProductos;
-        this.vListarProductos.btn_listar_pedidos.addActionListener(this);
         this.vListarProductos.btn_volver.addActionListener(this);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //// boton listar
-        if (e.getSource() == vListarProductos.btn_listar_pedidos) {
-            List<Pedido> listaPedidos = crudListarPedidos.buscar();
-            String col[] = {"CODIGO", "DESCRIPCION", "CANTIDAD", "PRECIO UNITARIO", "PRECIO FINAL"};
-            DefaultTableModel tableModel = new DefaultTableModel(col, 0);
-            vListarProductos.table_lista_productos.setModel(tableModel);
-            if (listaPedidos != null) {
-                for (Pedido pedido : listaPedidos) {
-                    Object[] objs = {pedido.getCodigo(), pedido.getDescripcion(), pedido.getCantidad(), pedido.getPrecio_unitario(), pedido.getPrecio_final()};
-                    tableModel.addRow(objs);
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Error al consultar, consulte con el administrador");
-            }
-        }
+//        //// boton agregar
+//        if (e.getSource() == frmPro.btn_agregar) {
+//            ped.setCodigo(frmPro.txt_codigo.getText());
+//            ped.setDescripcion(frmPro.txt_descripcion.getText());
+//            ped.setCantidad(Integer.parseInt(frmPro.txt_cantidad.getText()));
+//            ped.setPrecio_unitario(Integer.parseInt(frmPro.txt_precio_unitario.getText()));
+//            ped.setPrecio_final(Integer.parseInt(frmPro.txt_precio_final.getText()));
+//            if (proC.registrar(ped)) {
+//                JOptionPane.showMessageDialog(null, "Producto agregado");
+//                limpiar();
+//            } else {
+//                JOptionPane.showMessageDialog(null, "Error al agregar");
+//                limpiar();
+//            }
+//        }
 
         // boton volver
         if (e.getSource() == vListarProductos.btn_volver) {
@@ -53,6 +48,12 @@ public class ControladorListarProductos implements ActionListener {
             this.vListarProductos.dispose();
         }
 
+//        // boton btn_listar
+//        if (e.getSource() == frmPro.btn_listar) {
+//
+//            // oculta campos disponibles para admins
+////            visibilidadCamposAdmin(false);
+//        }
         //// boton modificar
         //        if(e.getSource()==frmPro.btn_modificar){
         //            pro.setId(Integer.parseInt(frmPro.txt_id.getText()));
@@ -100,6 +101,7 @@ public class ControladorListarProductos implements ActionListener {
         //        }
         //      
     }
+
 //    private void visibilidadCamposAdmin(boolean boleano) {
 //        frmPro.label_codigo.setVisible(boleano);
 //        frmPro.txt_codigo.setVisible(boleano);
@@ -131,4 +133,5 @@ public class ControladorListarProductos implements ActionListener {
 //        frmPro.txt_cantidad.setText(null);
 //        frmPro.txt_precio_final.setText(null);
 //    }
+
 }
