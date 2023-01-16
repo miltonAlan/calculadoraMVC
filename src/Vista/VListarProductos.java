@@ -19,22 +19,22 @@ public class VListarProductos extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btn_listar = new javax.swing.JButton();
+        btn_listar_pedidos = new javax.swing.JButton();
         btn_volver = new javax.swing.JButton();
         panel_atributos = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table_lista_productos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(162, 191, 249));
 
-        btn_listar.setText("Listar Pedidos");
-        btn_listar.setAutoscrolls(true);
-        btn_listar.addActionListener(new java.awt.event.ActionListener() {
+        btn_listar_pedidos.setText("Listar Pedidos");
+        btn_listar_pedidos.setAutoscrolls(true);
+        btn_listar_pedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_listarActionPerformed(evt);
+                btn_listar_pedidosActionPerformed(evt);
             }
         });
 
@@ -47,7 +47,7 @@ public class VListarProductos extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_listar, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                    .addComponent(btn_listar_pedidos, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_volver)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -57,7 +57,7 @@ public class VListarProductos extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(162, Short.MAX_VALUE)
-                .addComponent(btn_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_listar_pedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(127, 127, 127)
                 .addComponent(btn_volver)
                 .addContainerGap())
@@ -66,18 +66,23 @@ public class VListarProductos extends javax.swing.JFrame {
         panel_atributos.setBackground(new java.awt.Color(255, 255, 255));
         panel_atributos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table_lista_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "CODIGO", "DESCRIPCION", "CANTIDAD", "PRECIO UNITARIO", "PRECIO FINAL"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(table_lista_productos);
 
         javax.swing.GroupLayout panel_atributosLayout = new javax.swing.GroupLayout(panel_atributos);
         panel_atributos.setLayout(panel_atributosLayout);
@@ -113,9 +118,9 @@ public class VListarProductos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listarActionPerformed
+    private void btn_listar_pedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listar_pedidosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_listarActionPerformed
+    }//GEN-LAST:event_btn_listar_pedidosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,11 +159,11 @@ public class VListarProductos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btn_listar;
+    public javax.swing.JButton btn_listar_pedidos;
     public javax.swing.JButton btn_volver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     public javax.swing.JPanel panel_atributos;
+    public javax.swing.JTable table_lista_productos;
     // End of variables declaration//GEN-END:variables
 }

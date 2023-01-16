@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.CRUDListarPedidos;
 import Modelo.CRUDPedido;
 import Modelo.CRUDUsuario;
 import Modelo.Pedido;
@@ -46,7 +47,7 @@ public class ControladorLogin implements ActionListener {
             this.usuario.setApellido(log.txt_apellido_nuevo.getText());
             this.usuario.setUsuario(log.txt_usuario_nuevo.getText());
             this.usuario.setClave(log.txt_clave_nueva.getText());
-            this.usuario.setRol(log.combo_roles.getSelectedItem().toString());
+            this.usuario.setRol(log.combo_rol_escoger.getSelectedItem().toString());
             if (log.txt_clave_nueva.getText().length() > 0) {
                 JOptionPane.showMessageDialog(null, "Usuario  registrado");
                 crudUsuario.registrar(usuario);
@@ -72,6 +73,7 @@ public class ControladorLogin implements ActionListener {
                 if (crudUsuario.iniciar_sesion(usuario)) {
                     Pedido pro = new Pedido();
 
+                    CRUDListarPedidos crudListaPedidos = new CRUDListarPedidos();
                     CRUDPedido proC = new CRUDPedido();
 
                     VProducto frmPro = new VProducto();
@@ -79,9 +81,9 @@ public class ControladorLogin implements ActionListener {
                     VListarProductos frmLstProd = new VListarProductos();
 
                     ControladorProducto ctrlPro = new ControladorProducto(pro, frmPro, proC, frmPri);
-                    ControladorListarProductos ctrlLstPro = new ControladorListarProductos(pro, proC, frmPri, frmLstProd);
+                    ControladorListarProductos ctrlLstPro = new ControladorListarProductos(pro, crudListaPedidos, frmPri, frmLstProd);
                     ControladorPrincipal ctrlPri = new ControladorPrincipal(frmPri, frmPro, frmLstProd);
-                    
+
                     ctrlPri.inciar();
                     this.log.dispose();
                     JOptionPane.showMessageDialog(null, "Bienvenido " + this.usuario.getUsuario());
@@ -161,7 +163,7 @@ public class ControladorLogin implements ActionListener {
         this.log.txt_apellido_nuevo.setVisible(booleano);
         this.log.txt_usuario_nuevo.setVisible(booleano);
         this.log.txt_clave_nueva.setVisible(booleano);
-        this.log.combo_roles.setVisible(booleano);
+        this.log.combo_rol_escoger.setVisible(booleano);
 
 //        labels
         this.log.label_nombre_nuevo.setVisible(booleano);
@@ -180,5 +182,4 @@ public class ControladorLogin implements ActionListener {
         this.log.label_usuario.setVisible(booleano);
         this.log.label_contrasenia.setVisible(booleano);
     }
-
 }

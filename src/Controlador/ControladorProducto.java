@@ -2,7 +2,6 @@ package Controlador;
 
 import Modelo.CRUDPedido;
 import Modelo.Pedido;
-//import Vista.VListarProductos;
 import Vista.VPrincipal;
 import Vista.VProducto;
 import java.awt.event.ActionEvent;
@@ -30,7 +29,6 @@ public class ControladorProducto implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-                System.out.println("llega x lo menos");
         //// boton agregar
         if (e.getSource() == frmPro.btn_agregar) {
             ped.setCodigo(frmPro.txt_codigo.getText());
