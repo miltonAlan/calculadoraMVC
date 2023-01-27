@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 public class CRUDUsuario extends Conexion {
 
+    private int tipo;
+
     // Registro
     public boolean registrar(Usuario usr) {
         PreparedStatement ps = null;
@@ -40,6 +42,10 @@ public class CRUDUsuario extends Conexion {
             rs = ps.executeQuery();
             // valida que haya x lo menos un resultado
             if (rs.next() == true) {
+
+                //establece el id del usuario
+                usr.setId(Integer.parseInt(rs.getString("id")));
+
                 return true;
             }
         } catch (SQLException e) {
@@ -54,6 +60,33 @@ public class CRUDUsuario extends Conexion {
 
     }
 
+    /**
+     * @return 1 para usuario de tipo ADMIN
+     * @return 0 para usuario no ADMIN
+     */
+    public int consultarTipoUsuario(Usuario usuario) {
+        System.out.println("q pasa?");
+        PreparedStatement ps = null;
+        Connection con = getConexion();
+        ResultSet rs = null;
+        String sql = "select * from usuario where id=?";
+        try {
+            System.out.println("no cacho");
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, usuario.getId());
+            rs = ps.executeQuery();
+            if (rs.next()) {
+          // asigna 1 o 0 segun el tipo de usuario
+            tipo = (rs.getString("rol").equalsIgnoreCase("ADMIN")) ? 1 : 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+
+        
+        return tipo;
+    }
     // =========== METODO MODIFICAR
 //    public boolean modificar (Pedido p){
 //        PreparedStatement ps = null;

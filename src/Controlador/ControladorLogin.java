@@ -80,7 +80,7 @@ public class ControladorLogin implements ActionListener {
                     VPrincipal frmPri = new VPrincipal();
                     VListarProductos frmLstProd = new VListarProductos();
 
-                    ControladorProducto ctrlPro = new ControladorProducto(pro, frmPro, proC, frmPri);
+                    ControladorProducto ctrlPro = new ControladorProducto(pro, frmPro, proC, frmPri, usuario, crudUsuario);
                     ControladorListarProductos ctrlLstPro = new ControladorListarProductos(pro, crudListaPedidos, frmPri, frmLstProd);
                     ControladorPrincipal ctrlPri = new ControladorPrincipal(frmPri, frmPro, frmLstProd);
 
