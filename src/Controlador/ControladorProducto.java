@@ -49,7 +49,7 @@ public class ControladorProducto implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Error al agregar consulte con el ADMINISTRADOR");
                 limpiar();
             }
-        }else {
+        }else if (e.getSource() == frmPro.btn_agregar && crudUsuario.consultarTipoUsuario(usuario) == 0){
                 JOptionPane.showMessageDialog(null, "Error al agregar \n El usuario no es ADMINISTRADOR");
                 limpiar();
             }
