@@ -1,7 +1,9 @@
 package Controlador;
 
 import Modelo.CRUDPedido;
+import Modelo.CRUDUsuario;
 import Modelo.Pedido;
+import Modelo.Usuario;
 import Vista.VPrincipal;
 import Vista.VProducto;
 import java.awt.event.ActionEvent;
@@ -13,13 +15,17 @@ public class ControladorProducto implements ActionListener {
     private Pedido ped;
     private VProducto frmPro;
     private CRUDPedido proC;
+    private CRUDUsuario crudUsuario;
     private VPrincipal vPrincipal;
+    private Usuario usuario;
 
-    public ControladorProducto(Pedido pro, VProducto frmPro, CRUDPedido proC, VPrincipal vPrincipal) {
+    public ControladorProducto(Pedido pro, VProducto frmPro, CRUDPedido proC, VPrincipal vPrincipal, Usuario usuario, CRUDUsuario crudUsuario) {
         this.ped = pro;
         this.frmPro = frmPro;
         this.proC = proC;
         this.vPrincipal = vPrincipal;
+        this.usuario = usuario;
+        this.crudUsuario = crudUsuario;
         this.frmPro.btn_agregar.addActionListener(this);
         this.frmPro.btn_limpiar.addActionListener(this);
         this.frmPro.btn_calcular_precio_final.addActionListener(this);
@@ -30,7 +36,7 @@ public class ControladorProducto implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         //// boton agregar
-        if (e.getSource() == frmPro.btn_agregar) {
+        if (e.getSource() == frmPro.btn_agregar && crudUsuario.consultarTipoUsuario(usuario) == 1) {
             ped.setCodigo(frmPro.txt_codigo.getText());
             ped.setDescripcion(frmPro.txt_descripcion.getText());
             ped.setCantidad(Integer.parseInt(frmPro.txt_cantidad.getText()));
@@ -40,10 +46,13 @@ public class ControladorProducto implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Producto agregado");
                 limpiar();
             } else {
-                JOptionPane.showMessageDialog(null, "Error al agregar");
+                JOptionPane.showMessageDialog(null, "Error al agregar consulte con el ADMINISTRADOR");
                 limpiar();
             }
-        }
+        }else {
+                JOptionPane.showMessageDialog(null, "Error al agregar \n El usuario no es ADMINISTRADOR");
+                limpiar();
+            }
 
         // boton btn_calcular_precio_final
         if (e.getSource() == frmPro.btn_calcular_precio_final) {
@@ -143,5 +152,4 @@ public class ControladorProducto implements ActionListener {
         frmPro.txt_cantidad.setText(null);
         frmPro.txt_precio_final.setText(null);
     }
-
 }
