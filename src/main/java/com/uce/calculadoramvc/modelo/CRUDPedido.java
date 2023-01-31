@@ -1,92 +1,37 @@
-package Modelo;
+package com.uce.calculadoramvc.modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+//import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CRUDUsuario extends Conexion {
+public class CRUDPedido extends Conexion {
 
-    private int tipo;
-
-    // Registro
-    public boolean registrar(Usuario usr) {
+    // =========== METODO REGISTRAR
+    public boolean registrar(Pedido p) {
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql = "insert into usuario (nombre, apellido, usuario, clave, rol) values (?,?,?,?,?)";
+        String sql = "insert into pedido (codigo, cantidad, descripcion, precio_unitario, precio_final) values (?,?,?,?,?)";
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, usr.getNombre());
-            ps.setString(2, usr.getApellido());
-            ps.setString(3, usr.getUsuario());
-            ps.setString(4, usr.getClave());
-            ps.setString(5, usr.getRol());
+            ps.setString(1, p.getCodigo());
+            ps.setInt(2, p.getCantidad());
+            ps.setString(3, p.getDescripcion());
+            ps.setInt(4, p.getPrecio_unitario());
+            ps.setInt(5, p.getPrecio_final());
             ps.execute();
             return true;
         } catch (SQLException e) {
             System.err.println(e);
             return false;
         }
-    }
-
-    // Log in
-    public boolean iniciar_sesion(Usuario usr) {
-        PreparedStatement ps = null;
-        Connection con = getConexion();
-        ResultSet rs = null;
-        String sql = "select * from usuario where usuario=? and clave=?";
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setString(1, usr.getUsuario());
-            ps.setString(2, usr.getClave());
-            rs = ps.executeQuery();
-            // valida que haya x lo menos un resultado
-            if (rs.next() == true) {
-
-                //establece el id del usuario
-                usr.setId(Integer.parseInt(rs.getString("id")));
-
-                return true;
-            }
-        } catch (SQLException e) {
-            System.err.println(e);
-            return false;
-        }
-        return false;
-    }
+    } //------------ FIN REGISTRAR 
 
     public int calcularPrecioFinal(Pedido p) {
         return p.getPrecio_unitario() * p.getCantidad();
-
+        
     }
 
-    /**
-     * @return 1 para usuario de tipo ADMIN
-     * @return 0 para usuario no ADMIN
-     */
-    public int consultarTipoUsuario(Usuario usuario) {
-        System.out.println("q pasa?");
-        PreparedStatement ps = null;
-        Connection con = getConexion();
-        ResultSet rs = null;
-        String sql = "select * from usuario where id=?";
-        try {
-            System.out.println("no cacho");
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, usuario.getId());
-            rs = ps.executeQuery();
-            if (rs.next()) {
-          // asigna 1 o 0 segun el tipo de usuario
-            tipo = (rs.getString("rol").equalsIgnoreCase("ADMIN")) ? 1 : 0;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-
-        
-        return tipo;
-    }
     // =========== METODO MODIFICAR
 //    public boolean modificar (Pedido p){
 //        PreparedStatement ps = null;

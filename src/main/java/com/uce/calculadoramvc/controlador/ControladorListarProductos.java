@@ -1,10 +1,9 @@
-package Controlador;
+package com.uce.calculadoramvc.controlador;
 
-import Modelo.CRUDListarPedidos;
-import Modelo.CRUDPedido;
-import Modelo.Pedido;
-import Vista.VListarProductos;
-import Vista.VPrincipal;
+import com.uce.calculadoramvc.modelo.CRUDListarPedidos;
+import com.uce.calculadoramvc.modelo.Pedido;
+import com.uce.calculadoramvc.vista.VListarProductos;
+import com.uce.calculadoramvc.vista.VPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;

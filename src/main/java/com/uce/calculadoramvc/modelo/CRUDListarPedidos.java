@@ -1,4 +1,4 @@
-package Modelo;
+package com.uce.calculadoramvc.modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

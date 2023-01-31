@@ -1,8 +1,8 @@
-package Controlador;
+package com.uce.calculadoramvc.controlador;
 
-import Vista.VListarProductos;
-import Vista.VPrincipal;
-import Vista.VProducto;
+import com.uce.calculadoramvc.vista.VListarProductos;
+import com.uce.calculadoramvc.vista.VPrincipal;
+import com.uce.calculadoramvc.vista.VProducto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

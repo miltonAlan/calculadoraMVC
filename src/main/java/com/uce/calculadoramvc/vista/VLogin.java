@@ -1,20 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Vista;
+package com.uce.calculadoramvc.vista;
 
-import Controlador.ControladorPrincipal;
-import Controlador.ControladorProducto;
-import Modelo.CRUDPedido;
-import Modelo.Pedido;
-import javax.swing.JOptionPane;
-
-/**
- *
- * @author PC_INGLS632
- */
 public class VLogin extends javax.swing.JFrame {
 
     /**
@@ -51,11 +36,11 @@ public class VLogin extends javax.swing.JFrame {
         txt_nombre = new javax.swing.JTextField();
         txt_contrasenia = new javax.swing.JPasswordField();
         combo_rol_escoger = new javax.swing.JComboBox();
-        fondo = new javax.swing.JLabel();
+        fondo_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
         setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         label_rol_nuevo.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -168,8 +153,8 @@ public class VLogin extends javax.swing.JFrame {
         combo_rol_escoger.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADMIN", "USER"}));
         getContentPane().add(combo_rol_escoger, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, -1, -1));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 520));
+        fondo_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/uce/calculadoramvc/imagenes/fondo.jpg"))); // NOI18N
+        getContentPane().add(fondo_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 680, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -236,6 +221,7 @@ public class VLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -249,7 +235,7 @@ public class VLogin extends javax.swing.JFrame {
     public javax.swing.JButton btn_crear_user;
     public javax.swing.JButton btn_iniciar_sesion;
     public javax.swing.JComboBox combo_rol_escoger;
-    private javax.swing.JLabel fondo;
+    private javax.swing.JLabel fondo_label;
     private javax.swing.JButton jButton1;
     public javax.swing.JLabel label_apellido_nuevo;
     public javax.swing.JLabel label_clave_nueva;

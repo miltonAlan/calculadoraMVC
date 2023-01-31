@@ -1,9 +1,9 @@
-package PrograWeb;
+package com.uce.calculadoramvc.main;
 
-import Controlador.ControladorLogin;
-import Modelo.CRUDUsuario;
-import Modelo.Usuario;
-import Vista.VLogin;
+import com.uce.calculadoramvc.controlador.ControladorLogin;
+import com.uce.calculadoramvc.modelo.CRUDUsuario;
+import com.uce.calculadoramvc.modelo.Usuario;
+import com.uce.calculadoramvc.vista.VLogin;
 
 public class Main {
 

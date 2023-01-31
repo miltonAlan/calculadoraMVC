@@ -1,4 +1,4 @@
-package Vista;
+package com.uce.calculadoramvc.vista;
 
 public class VListarProductos extends javax.swing.JFrame {
 
@@ -147,6 +147,8 @@ public class VListarProductos extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VListarProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

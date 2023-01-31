@@ -1,11 +1,11 @@
-package Controlador;
+package com.uce.calculadoramvc.controlador;
 
-import Modelo.CRUDPedido;
-import Modelo.CRUDUsuario;
-import Modelo.Pedido;
-import Modelo.Usuario;
-import Vista.VPrincipal;
-import Vista.VProducto;
+import com.uce.calculadoramvc.modelo.CRUDPedido;
+import com.uce.calculadoramvc.modelo.CRUDUsuario;
+import com.uce.calculadoramvc.modelo.Pedido;
+import com.uce.calculadoramvc.modelo.Usuario;
+import com.uce.calculadoramvc.vista.VPrincipal;
+import com.uce.calculadoramvc.vista.VProducto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;

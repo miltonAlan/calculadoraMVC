@@ -1,4 +1,4 @@
-package Modelo;
+package com.uce.calculadoramvc.modelo;
 
 public class Usuario {
 
