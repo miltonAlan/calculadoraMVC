@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.uce</groupId>
 	<artifactId>calculadoraMVC</artifactId>
-	<version>999</version>
+	<version>timestamp_jenkins</version>
 	<packaging>jar</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
